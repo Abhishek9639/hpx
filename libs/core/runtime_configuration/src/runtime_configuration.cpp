@@ -28,6 +28,7 @@
 #endif
 
 #include <algorithm>
+#include <cerrno>
 #include <cstddef>
 #include <cstdint>
 #include <cstdlib>
@@ -1141,9 +1142,10 @@ namespace hpx::util {
             std::string const entry =
                 sec->get_entry(entryname, defaultvaluestr);
             char* endptr = nullptr;
+            errno = 0;
             long long const parsed =
                 std::strtoll(entry.c_str(), &endptr, /*base:*/ 0);
-            if (endptr == entry.c_str())
+            if (endptr == entry.c_str() || errno == ERANGE)
                 return defaultvalue;
 
             // a stack size that does not fit is no more usable than one that
