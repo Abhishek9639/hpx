@@ -1141,9 +1141,15 @@ namespace hpx::util {
             std::string const entry =
                 sec->get_entry(entryname, defaultvaluestr);
             char* endptr = nullptr;
-            std::ptrdiff_t const val =
+            long long const parsed =
                 std::strtoll(entry.c_str(), &endptr, /*base:*/ 0);
-            return endptr != entry.c_str() ? val : defaultvalue;
+            if (endptr == entry.c_str())
+                return defaultvalue;
+
+            // a stack size that does not fit is no more usable than one that
+            // did not parse
+            std::ptrdiff_t const val = static_cast<std::ptrdiff_t>(parsed);
+            return val == parsed ? val : defaultvalue;
         }
         return defaultvalue;
     }
