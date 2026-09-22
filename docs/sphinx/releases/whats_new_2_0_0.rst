@@ -325,18 +325,22 @@ Closed Issues and Pull Requests
 
 The full, generated lists of closed issues and merged pull requests for
 this release cycle are included below (see ``Closed issues`` and
-``Closed pull requests`` sections), spanning roughly 120 issues
-(#2235-#7539) and 680+ pull requests (#5843-#7554) merged since the
+``Closed pull requests`` sections), spanning 127 issues
+(#2235-#7591) and 722 pull requests (#5843-#7605) closed since the
 v1.11.0 release.
 
 Closed issues
 =============
 
+* :hpx-issue:`7591` - Windows CI: Unsynchronized `SymInitialize` calls between HPX and Tracy cause intermittent `DbgHelp` failures and heap corruption
+* :hpx-issue:`7569` - godbolt-minimal does not install hpx/experimental/sandbox.hpp
+* :hpx-issue:`7557` - examples/quickstart/sort_by_key_demo fails to compile with Apple clang 21 (libc++ __sift_down vs compare_projected)
 * :hpx-issue:`7539` - libhpx_wrap has an unpropagated oneTBB dependency
 * :hpx-issue:`7520` - Data race in hostname_print_helper::get_hostname() on worker thread startup
 * :hpx-issue:`7517` - HPX_FORWARD does not forward under nvcc: cudafe strips && from static_cast<decltype(x)&&>
 * :hpx-issue:`7513` - dijkstra_termination_disconnected_*_7474 abort on any HPX_WITH_SUPERVISION=OFF build
 * :hpx-issue:`7483` - force_disconnect: race between disconnect completion and AGAS resolve visibility
+* :hpx-issue:`7480` - Apply AGAS RPC timeout during hosted locality namespace bootstrap polling
 * :hpx-issue:`7470` - late_component_launcher: demonstrate crash detection -> force_disconnect purge -> relaunch
 * :hpx-issue:`7461` - check-circular-deps CI failing on master (pre-existing, unrelated to PR #base 4f5b0d6b)
 * :hpx-issue:`7428` - v1.11.0 fails to build with asio-1.38.2
@@ -407,6 +411,7 @@ Closed issues
 * :hpx-issue:`6888` - Enhancement: Add timeout and cancellation support to hpx::local::termination_detection()
 * :hpx-issue:`6878` - Parallel uninitialized_relocate does not preserve sequenced semantics for overlapping ranges
 * :hpx-issue:`6874` - tests.examples.1d_stencil.1d_stencil_5 is failing in some CI runs
+* :hpx-issue:`6867` - v1.11.0 fails to build on F44
 * :hpx-issue:`6854` - hpx::shared_mutex deadlock
 * :hpx-issue:`6842` - Errors when building tests relying on stdexec
 * :hpx-issue:`6798` - Provide a CMakePresets.json file
@@ -434,6 +439,7 @@ Closed issues
 * :hpx-issue:`6528` - Wrong version recommendation of shpinx when building documentation
 * :hpx-issue:`6506` - Create API similar to pthread_setaffinity_np for HPX threads
 * :hpx-issue:`6504` - `FindTBB.cmake` cannot find correct TBB library.
+* :hpx-issue:`6502` - The test executable numa_allocator_test fails with an assertion
 * :hpx-issue:`6500` - The test partitioned_vector\_ doesn't finish in a very long time
 * :hpx-issue:`6347` - Failed Linking CXX executable due to undefined references
 * :hpx-issue:`6345` - Initialization hangs when only setting --hpx:cores
@@ -442,6 +448,7 @@ Closed issues
 * :hpx-issue:`6163` - Expose global termination detection through a new API
 * :hpx-issue:`6014` - Support C++20 modules
 * :hpx-issue:`5907` - HPX_DEBUG/CMAKE_BUILD_TYPE not correctly decoupled/consistently used.
+* :hpx-issue:`5903` - Support for Windows HPC Pack
 * :hpx-issue:`5497` - Start using C++17 features unconditionally
 * :hpx-issue:`5045` - Implement P0443/P1897/P2300
 * :hpx-issue:`4702` - Prefer enum class over unscoped enums
@@ -456,15 +463,50 @@ Closed issues
 Closed pull requests
 ====================
 
+* :hpx-pr:`7605` - build(deps): bump github/codeql-action from 4.38.0 to 4.38.1
+* :hpx-pr:`7604` - thrust: rename policy_traits test to thrust_policy_traits to avoid ta...
+* :hpx-pr:`7601` - debugging: cache DbgHelp symbol lookups
+* :hpx-pr:`7600` - Use std::size_t for matrix and block sizes in the transpose examples
+* :hpx-pr:`7597` - fix synchronous channel communicator race
+* :hpx-pr:`7596` - Use std::size_t for grid and partition counts in the examples
+* :hpx-pr:`7594` - Check collection sizes read from an archive before using them
+* :hpx-pr:`7593` - Carry the thread heap counts as std::size_t
+* :hpx-pr:`7588` - Carry the idle and busy loop counts as std::int64_t
+* :hpx-pr:`7587` - docs: document future callback and async reference pitfalls (#2589)
+* :hpx-pr:`7586` - Take a std::size_t item count in the bulk dequeue path
+* :hpx-pr:`7584` - Regenerate V2.0.0 release notes Closed issues and pull requests lists
+* :hpx-pr:`7583` - docs: fix script name in release procedure
+* :hpx-pr:`7582` - Return std::int64_t from the queue holder thread counters
+* :hpx-pr:`7581` - Raise documentation build step timeouts to restore headroom
+* :hpx-pr:`7577` - Make fibhash return std::size_t
+* :hpx-pr:`7574` - Don't define HPX config macros while finding an installed HPX
+* :hpx-pr:`7573` - Restore the default handler before aborting
+* :hpx-pr:`7572` - Keep the real PAPI error and skip the test when the counter is missing
+* :hpx-pr:`7571` - Give each worker its own random generator for work stealing
+* :hpx-pr:`7567` - Keep LSU CI results when builds are interrupted
+* :hpx-pr:`7566` - Add a 32 bit Windows CI job
+* :hpx-pr:`7565` - Issue #7480 fix: AGAS RPC timeout during hosted locality namespace bootstrap polling
+* :hpx-pr:`7564` - performance_counters: synchronize registry access to countertypes\_
+* :hpx-pr:`7562` - performance_counters: discover counters registered after startup
+* :hpx-pr:`7561` - performance_counters: discover counters registered after startup
+* :hpx-pr:`7559` - make operator_brackets_proxy transparent to hpx::get for tuple-like references
+* :hpx-pr:`7558` - build(deps): bump github/codeql-action from 4.37.9 to 4.38.0
 * :hpx-pr:`7556` - fix: drop redundant HPX_CORE_EXPORT on version check definitions
 * :hpx-pr:`7554` - Exclude docs from Codacy's duplication analysis
+* :hpx-pr:`7553` - tracy: serialise DbgHelp calls with HPX on Windows
 * :hpx-pr:`7552` - config: remove TBB example benchmarks and unused FindTBB module
+* :hpx-pr:`7551` - Add orthogonal rebind_policy_executor_t / rebind_policy_parameters_t
+* :hpx-pr:`7550` - Feat : policy traits 6717
+* :hpx-pr:`7549` - Add a first draft of the V2.0.0 release notes
+* :hpx-pr:`7548` - Port generate_issue_pr_list.sh from hub to the GitHub CLI
 * :hpx-pr:`7546` - debugging: add regression test for hostname_print_helper race
+* :hpx-pr:`7544` - tracing: sample per-task lifecycle events 1-in-N
+* :hpx-pr:`7542` - Use an HPX-aware mutex in numa_binding_allocator::initialize_pages
 * :hpx-pr:`7541` - Factor the duplicated AGAS instance-name formatting into a shared helper
 * :hpx-pr:`7540` - Explicitly disable the use of TBB as the parallelization backend for libstdc++
 * :hpx-pr:`7537` - Refactor disconnected locality dispatch guard
 * :hpx-pr:`7536` - Factor the disconnected-locality dispatch guard into a shared helper
-* :hpx-pr:`7535` - Fix data race in hostname_print_helper::get_hostname()
+* :hpx-pr:`7535` - Fix data race in hostname_print_helper::get_hostname()"
 * :hpx-pr:`7534` - Keep LSU matrix artifacts separate
 * :hpx-pr:`7533` - Stop failed LSU builds from publishing installs
 * :hpx-pr:`7532` - Fix LSU GitHub status reporting
